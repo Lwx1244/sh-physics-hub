@@ -1,0 +1,27 @@
+# ============================================================
+# Render Blueprint 配置 —— 一键部署「上海高中物理平台」
+# 用法：在 Render 控制台选择 「Blueprint」→ 连接仓库 → 选中本文件即可自动建好服务。
+# 部署后你会拿到固定网址：https://sh-physics-hub.onrender.com
+# ============================================================
+services:
+  - type: web
+    name: sh-physics-hub
+    runtime: node
+    plan: free                 # 免费套餐；若提示需要信用卡，改用 Koyeb（无需信用卡）
+    branch: main
+    buildCommand: npm install
+    startCommand: bash start.sh   # start.sh 会自动：装依赖→建库→灌 350 题种子→启动
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "3000"
+      - key: ADMIN_PASS
+        sync: false            # 部署时 Render 会让你填写（务必改成强密码）
+      - key: SESSION_SECRET
+        generateValue: true    # Render 自动生成随机密钥
+      - key: DATABASE_URL
+        sync: false            # 用 Turso 云库时填写 libsql://xxx.turso.io
+      - key: DATABASE_AUTH_TOKEN
+        sync: false            # 用 Turso 云库时填写令牌
