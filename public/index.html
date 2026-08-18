@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f4e9c" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="沪上物理" />
+  <title>上海高中物理资源与智能训练平台</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/vendor/chart.umd.min.js"></script>
+  <script>window.Chart || document.write('<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"><\/script>');</script>
+</head>
+<body>
+  <div class="topbar">
+    <button class="menu-toggle" id="menuToggle" aria-label="打开导航">☰</button>
+    <div class="logo">沪上物理<span>·</span>资源与智能训练平台</div>
+    <div class="navlinks">
+      <a href="/admin" target="_blank">管理员后台</a>
+    </div>
+    <div class="spacer"></div>
+    <button class="btn ghost" id="loginBtn" style="color:#fff;border-color:#5b8de0;">管理员登录</button>
+  </div>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"><div class="empty">加载导航中…</div></aside>
+    <main class="content" id="content">
+      <div class="empty">请从左侧选择栏目</div>
+    </main>
+  </div>
+
+  <!-- 登录弹窗 -->
+  <div class="modal-mask" id="loginModal" style="display:none;">
+    <div class="modal">
+      <h3>管理员登录</h3>
+      <label class="field"><span>用户名</span><input id="lgUser" value="admin" /></label>
+      <label class="field"><span>密码</span><input id="lgPwd" type="password" value="admin123" /></label>
+      <button class="btn" id="lgSubmit" style="width:100%">登录</button>
+      <div class="err" id="lgErr"></div>
+      <div class="muted mt" style="font-size:12px">默认账号 admin / admin123（可在后台修改思路：种子已建）</div>
+    </div>
+  </div>
+
+  <!-- 前台题目详情（只读：复制 / 隐藏解析） -->
+  <div class="modal-mask" id="frontQModal" style="display:none;">
+    <div class="modal wide" id="frontQ"></div>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
