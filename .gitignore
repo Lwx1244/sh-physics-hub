@@ -1,0 +1,23 @@
+# 依赖
+node_modules/
+
+# 本地数据库与上传文件（部署时由 seed 自动重建，不进仓库）
+data/
+uploads/*
+!uploads/.gitkeep
+
+# 环境变量 / 密钥（含管理员密码，绝对不能提交）
+.env
+
+# 日志
+*.log
+
+# 系统 / 编辑器
+.DS_Store
+Thumbs.db
+*.db
+*.db-shm
+*.db-wal
+
+# 项目内部数据（非源码）
+.workbuddy/
